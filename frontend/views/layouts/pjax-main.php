@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
@@ -17,6 +18,8 @@ if (Yii::$app->controller->action->id === 'login') {
 } else {
 
     Wkii\AdminLTE\Asset\AdminLteAsset::register($this);
+    yii\widgets\PjaxAsset::register($this);
+    Wkii\AdminLTE\Asset\PaceAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
 ?>
@@ -54,7 +57,7 @@ if (Yii::$app->controller->action->id === 'login') {
         ?>
 
         <?= $this->render(
-            'main-content.php',
+            'pjax-main-content.php',
             ['content' => $content, 'directoryAsset' => $directoryAsset]
         )
         ?>
@@ -71,7 +74,15 @@ if (Yii::$app->controller->action->id === 'login') {
 
     <!-- REQUIRED JS SCRIPTS -->
 
-    <?php $this->endBody() ?>
+    <?php $this->endBody();?>
+
+    <script>
+        jQuery(document).ready(function () {
+            $(document).pjax("a[data-pjax]", "#pjax-container", {"push":true,"replace":false,"timeout":3000,"scrollTo":false});
+            //$(document).on('pjax:start', function() { you code });
+            //$(document).on('pjax:end',   function() { you code });
+        });
+    </script>
     </body>
 </html>
 <?php $this->endPage() ?>
