@@ -36,14 +36,13 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+        'assetManager' => [
+            'bundles' => [
+                'Wkii\AdminLTE\Asset\AdminLteAsset' => [
+                    'skin' => 'skin-black-light',
+                ],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
