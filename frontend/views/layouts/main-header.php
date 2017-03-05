@@ -6,12 +6,9 @@ use \yii\helpers\Html;
 <!-- Main Header -->
 <header class="main-header">
 
-    <!-- Logo -->
     <a href="<?= Yii::$app->homeUrl ?>" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><i class="fa fa-home"></i></span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><?= Html::encode(Yii::$app->name) ?></span>
+        <img src="<?php echo Yii::getAlias('@web/static/logo.png'); ?>" height="26">
+        <?= Html::tag('span', Html::encode(Yii::$app->name), ['class' => 'application-name']) ?>
     </a>
 
     <!-- Header Navbar -->
@@ -155,10 +152,6 @@ use \yii\helpers\Html;
                             </div>
                         </li>
                     </ul>
-                </li>
-                <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>
